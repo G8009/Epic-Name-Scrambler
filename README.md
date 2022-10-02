@@ -1,5 +1,5 @@
 # Epic-Name-Scrambler
-A script made to replicate the names of The Caretaker's Everywhere at the End of Time Stage 3 and Everywhere, an Empty Bliss. \n
+A script made to replicate the names of The Caretaker's Everywhere at the End of Time Stage 3 and Everywhere, an Empty Bliss.
 ---- SETTINGS ----
 Additional keywords - Adds additional text to add to the scrambling list
 Amount of names to generate - Defines the amount of names created
