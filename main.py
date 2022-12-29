@@ -2,6 +2,11 @@ from tkinter import *
 from tkinter import IntVar
 from tkinter import ttk
 from random import *
+from tkinter import filedialog
+import tkinter.filedialog
+txt = ["Text file", "*.txt"]
+
+# just names from the albums, don't touch this :chofe:
 lSmfthb = ["The", "Haunted", "Ballroom", "By", "The", "Seaside", "One", "Thousand", "Memories", "Haunting", "Me", "A", "Summer", "Romance", "Den", "of", "Iniquity", "Dream", "Waltz", "a", "Handful", "of", "Stars", "Request", "Dance", "In", "The", "Dark", "Reckless", "Night", "Thronged", "With", "Ghosts", "From", "Out", "of", "Nowhere", "Friends", "Past", "Reunited", "You", "And", "The", "Night", "Moonlight", "Serenade", "Disillusioned", "The", "Revolving", "Bandstand", "Garden", "of", "Weeds", "Excuse", "Me", "For", "Ladies", "In", "Days", "of", "Old", "September", "1939", "Thanks", "Midnight", "The", "Stars", "And", "You", "Thanks"]
 lAstts = ["We", "Cannot", "Escape", "The", "Past", "Cloudy", "Since", "You", "Went", "Away", "Emptiness", "Consigned", "To", "a", "Yesterday", "Masquerade", "Ball", "Malign", "Forces", "of", "Occult", "On", "Edge", "of", "Breakdown", "Robins", "And", "Roses", "Date", "With", "An", "Angel", "It's", "All", "Forgotten", "Now", "Each", "Today", "Doesn't", "Lead", "To", "a", "Tomorrow", "Home", "Friends", "Past", "Re-united", "a", "Stairway", "To", "The", "Stars"]
 lWagroar = ["I", "Saw", "Your", "Face", "in", "a", "Dream", "We'll", "All", "Go", "Riding", "On", "a", "Rainbow", "That", "Old", "Feeling", "The", "Weeping", "Dancefloor", "Driven", "Beyond", "The", "Limits", "The", "Memory", "Of", "a", "Song", "And", "The", "Bands", "Played", "On", "Here", "I", "Am", "Broken", "Hearted", "Hoping", "For", "Some", "Kind", "of", "Recognition", "Under", "a", "Warm", "Golden", "Light", "Unmasking", "At", "Midnight", "Roll", "Up", "the", "Carpet", "And", "Dance", "Contemplation", "Faith", "In", "Time", "We", "Have", "Been", "Here", "Before", "Stardust"]
@@ -19,90 +24,148 @@ lEateotS6 = ["A", "Confusion", "So", "Thick", "You", "Forget", "Forgetting", "A"
 lEaeb = ["Loss", "of", "Want", "Back", "There", "I", "Might", "Be", "Vanishing", "Empty", "Beyond", "Beyond", "Beyond", "Losing", "Battle", "of", "Loss", "Advanced", "Plaque", "Camaraderie", "All", "Eyes", "Bewildered", "Glimpses", "of", "Life", "Denial", "Equinox", "Eyes", "Will", "Stop", "Losing", "Loss", "of", "Battle", "Plaque", "Advanced", "Despair", "Benjamin", "Beyond", "Bliss", "Drifting", "Sublime", "Hope", "Minimal", "All", "You", "Are", "Internal", "Unravel", "Dusk", "Memory", "Fraction", "Entanglement", "Synapse", "Ache", "And", "Bliss", "Everyhwere", "Bliss"]
 lEaebM = ["An", "Empty", "Everywhere" "I", "Might", "Be", "Vanishing", "Losing", "Battle", "of", "Loss", "Advanced", "Plaque", "Camaraderie", "All", "Eyes", "Bewildered", "Glimpses", "of", "Life", "Denial", "Losing", "Loss", "of", "Battle", "Plaque", "Advanced", "Despair", "Benjamin", "Beyond", "Bliss", "Drifting", "Sublime", "Hope", "Internal", "Unravel", "Dusk", "Memory", "Fraction", "My", "Heart", "Is", "True", "Lonely", "Way", "Ahead", "Hidden", "Minimal", "Sea", "Elusive", "Sunshine"]
 lTciadot = ["Take", "Care", "It's", "A", "Desert", "Out", "There"]
+
+def inFile():
+    folderPathIn = tkinter.filedialog.askopenfile(mode='r')
+    # write from selected file
+    ctn = folderPathIn.read()
+    pullFrom.delete(0, END)
+    pullFrom.insert(0, ctn)
+def outFile():
+    folderPathOut = tkinter.filedialog.asksaveasfile(filetypes=(("Text Files", "*.txt"),))
+    # jfc I spent like 20 minutes on google trying to figure this out. I just needed to add ".name" in there wtf
+    # write to selected file
+    fileDir = open(folderPathOut.name, "w", encoding="utf-8")
+    fileDir.write(outputS.get())
 def setAll0():
+    # literally just adding 0 to all the entries
     smfthb.delete(0,END)
     smfthb.insert(0,"0")
+
     astts.delete(0,END)
     astts.insert(0,"0")
+
     wagroar.delete(0,END)
     wagroar.insert(0,"0")
+
     dsfd.delete(0,END)
     dsfd.insert(0,"0")
+
     prop.delete(0,END)
     prop.insert(0,"0")
+
     aebbtw.delete(0,END)
     aebbtw.insert(0,"0")
+
     pas.delete(0,END)
     pas.insert(0,"0")
+
     epas.delete(0,END)
     epas.insert(0,"0")
+
     s1.delete(0,END)
     s1.insert(0,"0")
+
     s2.delete(0,END)
     s2.insert(0,"0")
+
     s3.delete(0,END)
     s3.insert(0,"0")
+
     s4.delete(0,END)
     s4.insert(0,"0")
+
     s5.delete(0,END)
     s5.insert(0,"0")
+
     s6.delete(0,END)
     s6.insert(0,"0")
+
     eaeb.delete(0,END)
     eaeb.insert(0,"0")
+
     eaebm.delete(0,END)
     eaebm.insert(0,"0")
+
     tciadot.delete(0,END)
     tciadot.insert(0,"0")
+
     aText.delete(0,END)
     aText.insert(0,"0")
+
 def setAll100():
+    #ditto last except with 100
+
     smfthb.delete(0,END)
-    smfthb.insert(0,"1000")
+    smfthb.insert(0,"100")
+
     astts.delete(0,END)
     astts.insert(0,"100")
+
     wagroar.delete(0,END)
     wagroar.insert(0,"100")
+
     dsfd.delete(0,END)
     dsfd.insert(0,"100")
+
     prop.delete(0,END)
     prop.insert(0,"100")
+
     aebbtw.delete(0,END)
     aebbtw.insert(0,"100")
+
     pas.delete(0,END)
     pas.insert(0,"100")
+
     epas.delete(0,END)
     epas.insert(0,"100")
+
     s1.delete(0,END)
     s1.insert(0,"100")
+
     s2.delete(0,END)
     s2.insert(0,"100")
+
     s3.delete(0,END)
     s3.insert(0,"100")
+
     s4.delete(0,END)
     s4.insert(0,"100")
+
     s5.delete(0,END)
     s5.insert(0,"100")
+
     s6.delete(0,END)
     s6.insert(0,"100")
+
     eaeb.delete(0,END)
     eaeb.insert(0,"100")
+
     eaebm.delete(0,END)
     eaebm.insert(0,"100")
+
     tciadot.delete(0,END)
     tciadot.insert(0,"100")
+
     aText.delete(0,END)
     aText.insert(0,"100")
+
 def scramble():
     b=0
+    # iteration var, too lazy to change, soz
+
+    # clear out list from previous session and prepare text in "Additional Text" for scrambling process
     listS.clear()
     strUns = pullFrom.get()
     listUns = strUns.split()
-    noNames = int(selectGens.get())
+
+    namesToGen = int(selectGens.get())
     for i in range(len(lSmfthb)-1):
         a=randint(0,100)
+        # var for % chance
         if int(smfthb.get()) > a:
             listUns.append(lSmfthb[b])
+            # append song titles from smfthb, ditto for each next loop
             b=b+1
     b=0
     for i in range(len(lAstts)-1):
@@ -201,14 +264,18 @@ def scramble():
         listUns.append(lTciadot[b])
         b=b+1
     b=0
-    for i in range(noNames):
-        nameLength = randint(1,int(selectLength.get()))
-        for j in range(nameLength):
+    for i in range(namesToGen):
+        length = randint(1,int(selectLength.get()))
+        for j in range(length):
             a = randint(0,len(listUns)-1)
             listS.append(listUns[a])
         listS.append("\n")
+    # clear old output and add new
     outputS.delete(0,END)
     outputS.insert(0,listS)
+# I HATE TKINTER I HATE TKINTER I HATE TKINTER
+# yeah no I ain't commenting this sorry
+
 root = Tk()
 listS = []
 frm = ttk.Frame(root, padding=10)
@@ -280,6 +347,8 @@ eaebm.grid(column=4,row=7)
 ttk.Label(frm, text="% Chance of Additional text").grid(column=3, row=8)
 aText = ttk.Entry(frm, width=10)
 aText.grid(column=4,row=8)
-ttk.Button(frm, text="Set All 100", command=setAll100).grid(column=5, row=0)
-ttk.Button(frm, text="Set All 0", command=setAll0).grid(column=5, row=1)
+ttk.Button(frm, text="Set all 100", command=setAll100).grid(column=5, row=0)
+ttk.Button(frm, text="Set all 0", command=setAll0).grid(column=5, row=1)
+ttk.Button(frm, text="Import text from .txt file", command=inFile).grid(column=0, row=9)
+ttk.Button(frm, text="Export text to .txt file", command=outFile).grid(column=1, row=9)
 root.mainloop()
